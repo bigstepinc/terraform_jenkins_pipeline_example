@@ -4,8 +4,8 @@ pipeline {
     environment {
         METALCLOUD_API_KEY = credentials("METALCLOUD_API_KEY") // the METALCLOUD_API_KEY credentials defined in Jenkins 
         METALCLOUD_USER_EMAIL = credentials("METALCLOUD_USER_EMAIL") // the METALCLOUD_USER_EMAIL credentials defined in Jenkins 
-        METALCLOUD_ENDPOINT = credentials("METALCLOUD_ENDPOINT") // the METALCLOUD_ENDPOINT credentials defined in Jenkins 
-        TF_VAR_datacenter = credentials("TF_VAR_datacenter")// the TF_VAR_datacenter credentials defined in Jenkins 
+        TF_VAR_datacenter = credentials("TF_VAR_datacenter")// the TF_VAR_datacenter credentials defined in Jenkins
+        TF_VAR_endpoint = credentials("TF_VAR_endpoint")
     }
 
     parameters {
