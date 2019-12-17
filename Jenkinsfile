@@ -3,6 +3,7 @@ pipeline {
     
     environment {
         SKIP_MANUAL_APPROVAL_STAGE = "true"
+        
         TERRAFORM_CMD = "/usr/local/bin/terraform"
 
         METALCLOUD_API_KEY = credentials("METALCLOUD_API_KEY")
