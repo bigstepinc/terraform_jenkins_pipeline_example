@@ -2,6 +2,8 @@ pipeline {
     agent any
     
     environment {
+        SKIP_MANUAL_APPROVAL_STAGE = "true"  // if true, no manual approval is needed before running terraform apply, destroy
+        TERRAFORM_PATH = "/usr/local/bin/terraform" 
         PROJECT_PATH = "./terraform_jenkins_pipeline_example"
 
         METALCLOUD_API_KEY = credentials("METALCLOUD_API_KEY") // the METALCLOUD_API_KEY credentials defined in Jenkins 
@@ -16,7 +18,7 @@ pipeline {
             description: 'if SKIP_MANUAL_APPROVAL_STAGE is true, no manual approval is needed before running terraform apply, destroy') 
         booleanParam(name: 'TERRAFORM_PATH', defaultValue: "terraform", 
             description: 'Absolute path to terraform binary') 
-
+    }
 
    stages { 
     stage("Run terraform init"){
