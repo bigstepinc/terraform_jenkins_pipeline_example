@@ -2,10 +2,6 @@ pipeline {
     agent any
     
     environment {
-        SKIP_MANUAL_APPROVAL_STAGE = "true"  // if true, no manual approval is needed before running terraform apply, destroy
-        TERRAFORM_PATH = "/usr/local/bin/terraform" 
-        PROJECT_PATH = "./terraform_jenkins_pipeline_example"
-
         METALCLOUD_API_KEY = credentials("METALCLOUD_API_KEY") // the METALCLOUD_API_KEY credentials defined in Jenkins 
         METALCLOUD_USER_EMAIL = credentials("METALCLOUD_USER_EMAIL") // the METALCLOUD_USER_EMAIL credentials defined in Jenkins 
         METALCLOUD_ENDPOINT = credentials("METALCLOUD_ENDPOINT") // the METALCLOUD_ENDPOINT credentials defined in Jenkins 
@@ -24,13 +20,13 @@ pipeline {
     stage("Run terraform init"){
         steps{
             sh "ls -la"
-            sh "cd '$PROJECT_PATH' && '${params.TERRAFORM_PATH}' init -input=false"
+            sh "'${params.TERRAFORM_PATH}' init -input=false"
         }
     }
 
     stage("Run terraform plan"){
       steps{
-        sh "cd '$PROJECT_PATH' && '${params.TERRAFORM_PATH}' plan -out='$JOB_NAME' -input=false"
+        sh "'${params.TERRAFORM_PATH}' plan -out='$JOB_NAME' -input=false"
       }
     }
 
@@ -45,7 +41,7 @@ pipeline {
 
     stage("Run terraform apply"){
       steps{
-        sh "cd '$PROJECT_PATH' && '${params.TERRAFORM_PATH}' apply '$JOB_NAME'"
+        sh "'${params.TERRAFORM_PATH}' apply '$JOB_NAME'"
       }
     }   
 
@@ -60,7 +56,7 @@ pipeline {
 
     stage("Run terraform destroy") {
         steps {
-            sh "cd '$PROJECT_PATH' && '${params.TERRAFORM_PATH}' destroy -force "
+            sh "'${params.TERRAFORM_PATH}' destroy -force "
         }
     }
 
