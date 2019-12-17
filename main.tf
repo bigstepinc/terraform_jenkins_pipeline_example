@@ -9,7 +9,7 @@ data "metalcloud_volume_template" "centos76" {
 resource "metalcloud_infrastructure" "my-infra216" {
   
   infrastructure_label = "my-terraform-infra216"
-  datacenter_name = "uk-reading"
+  datacenter_name = var.datacenter
   
   //remove this to actually deploy changes, otherwise all changes will remain in edit mode only.
   prevent_deploy = true 
