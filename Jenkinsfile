@@ -12,7 +12,7 @@ pipeline {
     parameters {
         booleanParam(name: 'SKIP_MANUAL_APPROVAL_STAGE', defaultValue: true, 
             description: 'if SKIP_MANUAL_APPROVAL_STAGE is true, no manual approval is needed before running terraform apply, destroy') 
-        booleanParam(name: 'TERRAFORM_PATH', defaultValue: "terraform", 
+        string(name: 'TERRAFORM_PATH', defaultValue: "terraform", 
             description: 'Absolute path to terraform binary') 
     }
 
