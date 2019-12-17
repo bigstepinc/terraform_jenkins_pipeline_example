@@ -1,3 +1,8 @@
+Bigstep Metalcloud Terraform Jenkins pipeline examples
+==================
+This repo contains examples on how to execute terraform via jenkins pipelines
+
+
 ##complex example of metalcloud terraform deploy
 
 Set key & api variables:
