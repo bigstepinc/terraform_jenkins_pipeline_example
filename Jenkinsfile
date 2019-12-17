@@ -19,7 +19,6 @@ pipeline {
    stages { 
     stage("Run terraform init"){
         steps{
-            sh "ls -la"
             sh "'${params.TERRAFORM_PATH}' init -input=false"
         }
     }
