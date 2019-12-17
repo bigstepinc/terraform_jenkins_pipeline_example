@@ -5,7 +5,7 @@ This repo contains examples on how to execute terraform via jenkins pipelines
 
 Requirements
 ------------
--	Bigstep Metalcloud Terraform Provider already installed, follow the steps described here https://github.com/bigstepinc/terraform-provider-metalcloud
+-	Bigstep Metalcloud Terraform Provider already installed https://github.com/bigstepinc/terraform-provider-metalcloud
 - An up & running Jenkins 
 - A Bigstep Metalcloud account
 
