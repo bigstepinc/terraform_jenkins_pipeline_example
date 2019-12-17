@@ -23,7 +23,7 @@ pipeline {
    stages { 
     stage("Run terraform init"){
         steps{
-            sh "pwd"
+            sh "ls -la"
             sh "cd '$PROJECT_PATH' && '${params.TERRAFORM_PATH}' init -input=false"
         }
     }
