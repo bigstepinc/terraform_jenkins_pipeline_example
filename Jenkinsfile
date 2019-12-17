@@ -8,7 +8,6 @@ pipeline {
         TF_VAR_datacenter = credentials("TF_VAR_datacenter")// the TF_VAR_datacenter credentials defined in Jenkins 
     }
 
-
     parameters {
         booleanParam(name: 'SKIP_MANUAL_APPROVAL_STAGE', defaultValue: true, 
             description: 'if SKIP_MANUAL_APPROVAL_STAGE is true, no manual approval is needed before running terraform apply, destroy') 
@@ -59,12 +58,11 @@ pipeline {
         }
     }
 
-    stage("Clean up workspace") {
-        steps {
-            cleanWs()
-        }
+}
+post {
+    always {
+        cleanWs()
     }
-
 }
 
 }
