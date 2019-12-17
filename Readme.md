@@ -3,30 +3,14 @@ Bigstep Metalcloud Terraform Jenkins pipeline examples
 This repo contains examples on how to execute terraform via jenkins pipelines
 
 
-##complex example of metalcloud terraform deploy
+Requirements
+------------
+-	Bigstep Metalcloud Terraform Provider already installed, follow the steps described here https://github.com/bigstepinc/terraform-provider-metalcloud
+- An up & running Jenkins 
+- A Bigstep Metalcloud account
 
-Set key & api variables:
-
-```bash
-export TF_VAR_api_key="<yourkey>"
-export TF_VAR_user_email="test@test.com"
-export TF_VAR_endpoint="https://api.bigstep.com/metal-cloud"
-export TF_VAR_datacenter="uk-reading"
-```
-The plan phase:
-```bash
-terraform plan
-```
-
-The apply phase:
-```bash
-terraform apply
-```
-
-To delete the infrastrucure:
-```bash
-terraform destroy
-```
-
-
-# terraform_jenkins_pipeline_example
+Setup
+------------
+To get started do the following:
+ - Create a new pipeline in Jenkins
+ - Add global credentials in Jenkins for Metalcloud variables: METALCLOUD_API_KEY, METALCLOUD_USER_EMAIL, METALCLOUD_ENDPOINT and TF_VAR_datacenter
