@@ -1,12 +1,5 @@
-variable "user_email" {
-
-}
-
-variable "api_key" {
-
-}
-
 variable "endpoint" {
+  default="https://api.bigstep.com/metal-cloud"
 
 }
 

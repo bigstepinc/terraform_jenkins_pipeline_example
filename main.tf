@@ -1,7 +1,5 @@
 provider "metalcloud" {
-   user_email = var.user_email
-   api_key = var.api_key 
-   endpoint = var.endpoint
+  endpoint = var.endpoint
 }
 
 data "metalcloud_volume_template" "centos76" {
@@ -11,7 +9,7 @@ data "metalcloud_volume_template" "centos76" {
 resource "metalcloud_infrastructure" "my-infra216" {
   
   infrastructure_label = "my-terraform-infra216"
-  datacenter_name = var.datacenter
+  datacenter_name = "uk-reading"
   
   //remove this to actually deploy changes, otherwise all changes will remain in edit mode only.
   prevent_deploy = true 
